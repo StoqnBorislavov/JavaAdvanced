@@ -32,57 +32,42 @@ public class StringMatrixRotation_06 {
         } else if(degrees % 360 == 0){
             printMatrix(matrix);
         }
-
     }
 
     private static void rotateMatrixIn270Degrees(int rows, int cols, String[][] matrix) {
-        int currentRows = 0;
-        int currentCols = cols - 1;
-        while (currentCols >= 0){
-            if(matrix[currentRows][currentCols].equals("")){
-                matrix[currentRows][currentCols] = " ";
+        for (int col = cols - 1; col >= 0; col--) {
+            for (int row = 0; row < rows; row++) {
+                if(matrix[row][col].equals("")){
+                    matrix[row][col] = " ";
+                }
+                System.out.print(matrix[row][col]);
             }
-            System.out.print(matrix[currentRows][currentCols]);
-            currentRows++;
-            if(currentRows > rows - 1){
-                currentRows = 0;
-                currentCols--;
-                System.out.println();
-            }
+            System.out.println();
         }
     }
 
     private static void rotateMatrixIn180Degrees(int rows, int cols, String[][] matrix) {
-        int currentRows = rows - 1;
-        int currentCols = cols - 1;
-        while (currentRows >= 0){
-            if(matrix[currentRows][currentCols].equals("")){
-                matrix[currentRows][currentCols] = " ";
+        for (int row = rows - 1; row >= 0; row--) {
+            for (int col = cols - 1; col >= 0; col--) {
+                if(matrix[row][col].equals("")){
+                    matrix[row][col] = " ";
+                }
+                System.out.print(matrix[row][col]);
             }
-            System.out.print(matrix[currentRows][currentCols]);
-            currentCols--;
-            if(currentCols < 0){
-                currentCols = cols - 1;
-                currentRows--;
-                System.out.println();
-            }
+            System.out.println();
         }
     }
 
     public static void rotateMatrixIn90Degrees(int rows, int cols, String[][] matrix){
-        int currentRows = rows - 1;
-        int currentCols = 0;
-        while (currentCols < cols){
-            if(matrix[currentRows][currentCols].equals("")){
-                matrix[currentRows][currentCols] = " ";
+
+        for (int col = 0; col < cols; col++) {
+            for (int row = rows - 1; row >= 0; row--) {
+                if(matrix[row][col].equals("")){
+                    matrix[row][col] = " ";
+                }
+                System.out.print(matrix[row][col]);
             }
-            System.out.print(matrix[currentRows][currentCols]);
-            currentRows--;
-            if(currentRows < 0){
-                currentRows = rows - 1;
-                currentCols++;
-                System.out.println();
-            }
+            System.out.println();
         }
     }
     private static String[][] readMatrix(int rows, int cols, List<String> words) {
