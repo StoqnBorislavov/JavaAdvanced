@@ -15,46 +15,37 @@ public class FillTheMatrix_01 {
         int[][] matrix = new int[n][n];
         switch (pattern){
             case "A":
-                matrix = fillTheMatrixPatternA(matrix);
+                matrix = fillTheMatrixPatternA(matrix, n);
                 printMatrix(matrix);
                 break;
             case "B":
-                matrix = fillTheMatrixPatternB(matrix);
+                matrix = fillTheMatrixPatternB(matrix, n);
                 printMatrix(matrix);
                 break;
         }
     }
 
-    private static int[][] fillTheMatrixPatternB(int[][] matrix) {
-        int row = 0;
-        int col = 0;
-        int counter =0;
-        int colCount = 1;
-        while (col < matrix[row].length){
-            matrix[row][col]= ++counter;
-            if(row + 1 < matrix.length && colCount % 2 != 0) {
-                row++;
-            } else if (row > 0 && colCount % 2 == 0){
-                row--;
+    private static int[][] fillTheMatrixPatternB(int[][] matrix, int size) {
+        int startNumber = 1;
+        for (int col = 0; col < size; col++) {
+            if(col % 2 == 0){
+                for (int row = 0; row < size; row++) {
+                    matrix[row][col] = startNumber++;
+                }
             } else {
-                colCount++;
-                col++;
+                for (int row = size - 1; row >= 0; row--) {
+                    matrix[row][col] = startNumber++;
+                }
             }
         }
         return matrix;
     }
 
-    private static int[][] fillTheMatrixPatternA(int[][] matrix) {
-        int row = 0;
-        int col = 0;
-        int counter =0;
-        while (col < matrix[row].length){
-            matrix[row][col]= ++counter;
-            if(row + 1 < matrix.length){
-                row++;
-            } else{
-                row = 0;
-                col++;
+    private static int[][] fillTheMatrixPatternA(int[][] matrix, int size) {
+        int startNumber = 1;
+        for (int col = 0; col < size; col++) {
+            for (int row = 0; row < size; row++) {
+                matrix[row][col] = startNumber++;
             }
         }
         return matrix;
