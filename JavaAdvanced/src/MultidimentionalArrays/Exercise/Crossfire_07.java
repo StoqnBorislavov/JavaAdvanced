@@ -1,5 +1,6 @@
 package MultidimentionalArrays.Exercise;
 
+import java.io.IOException;
 import java.sql.ClientInfoStatus;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Crossfire_07 {
-    public static void main(String[] args) {
+    public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         int[] rowsAndCols = readArray(sc.nextLine(), "\\s+");
         int rows = rowsAndCols[0];
@@ -25,7 +26,7 @@ public class Crossfire_07 {
 
             // removing elements from top and bottom
             for (int currentRow = row - radius; currentRow <= row + radius; currentRow++) {
-                if(isInMatrix(currentRow, col, matrix)) {
+                if(isInMatrix(currentRow, col, matrix) && currentRow != row) {
                     matrix.get(currentRow).remove(col);
                 }
             }
@@ -35,9 +36,10 @@ public class Crossfire_07 {
                     matrix.get(row).remove(currentCol);
                 }
             }
+            matrix.removeIf(List::isEmpty);
             command = sc.nextLine();
         }
-        matrix.removeIf(List::isEmpty);
+
 
         // print matrix
         printMatrix(matrix, rows, cols);
