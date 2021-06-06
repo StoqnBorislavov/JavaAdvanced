@@ -11,10 +11,12 @@ public class Main {
         List<Car> cars = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             String[] tokens = sc.nextLine().split("\\s+");
-            Car car = new Car();
-            car.setBrand(tokens[0]);
-            car.setModel(tokens[1]);
-            car.setHorsePower(Integer.parseInt(tokens[2]));
+            Car car;
+            if(tokens.length == 1){
+                car = new Car(tokens[0]);
+            } else {
+                car = new Car(tokens[0], tokens[1], Integer.parseInt(tokens[2]));
+            }
             cars.add(car);
         }
         cars.forEach(System.out::println);

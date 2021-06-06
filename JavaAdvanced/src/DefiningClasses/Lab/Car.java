@@ -5,6 +5,24 @@ public class Car {
     private String model;
     private int horsePower;
 
+
+    public Car(String brand){
+        this(brand, "unknown", -1);
+    }
+    public Car(String brand, String model){
+        this(brand, model, -1);
+    }
+    public Car(String brand, int horsePower){
+        this(brand, "unknown", horsePower);
+    }
+
+
+    public Car(String brand, String model, int horsePower){
+        this.brand = brand;
+        this.model = model;
+        this.horsePower = horsePower;
+    }
+
     public  void setBrand(String brand){
         this.brand = brand;
     }
@@ -41,6 +59,9 @@ public class Car {
                     && this.horsePower == other.horsePower;
         };
         return false;
+    }
+    public String getInfo(){
+        return toString();
     }
 
     @Override
