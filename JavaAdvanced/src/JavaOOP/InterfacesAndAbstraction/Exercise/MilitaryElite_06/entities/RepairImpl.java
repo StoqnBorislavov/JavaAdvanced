@@ -11,4 +11,14 @@ public class RepairImpl implements Repair {
         this.hoursWorked = hoursWorked;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Part Name: ")
+                .append(this.partName)
+                .append(" Hours Worked: ")
+                .append(this.hoursWorked);
+
+        return builder.toString().trim();
+    }
 }

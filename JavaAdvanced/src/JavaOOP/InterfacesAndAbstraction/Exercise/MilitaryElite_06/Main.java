@@ -24,6 +24,9 @@ public class Main {
             input = sc.nextLine();
 
         }
+        for (Soldier soldier : soldierByIds.values()) {
+            System.out.println(soldier.toString());
+        }
     }
 
     private static Soldier createSoldier(String input) {
@@ -103,14 +106,14 @@ public class Main {
         return null;
     }
 
-    private static Private createLieutenantGeneral(String[] tokens) {
-        Private aPrivate =  new LieutenantGeneralImpl(Integer.parseInt(tokens[1]),
+    private static Soldier createLieutenantGeneral(String[] tokens) {
+        LieutenantGeneral soldier =  new LieutenantGeneralImpl(Integer.parseInt(tokens[1]),
                             tokens[2],
                             tokens[3],
                             Double.parseDouble(tokens[4]));
         for (int i = 5; i < tokens.length; i++) {
-            //aPrivate.addPrivate(soldierByIds.get(Integer.parseInt(tokens[i])));
+            soldier.addPrivate((Private) soldierByIds.get(Integer.parseInt(tokens[i])));
         }
-        return aPrivate;
+        return soldier;
     }
 }

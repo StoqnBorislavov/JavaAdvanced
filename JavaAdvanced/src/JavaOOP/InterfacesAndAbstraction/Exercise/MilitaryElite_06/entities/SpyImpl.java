@@ -9,4 +9,9 @@ public class SpyImpl extends SoldierImpl implements Spy {
         super(id, firstName, lastName);
         this.codeNumber = codeNumber;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + System.lineSeparator() +"Code Number: " + this.codeNumber;
+    }
 }

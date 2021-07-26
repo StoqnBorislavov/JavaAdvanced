@@ -16,4 +16,9 @@ public class PrivateImpl extends SoldierImpl implements Private {
     public double getSalary() {
         return this.salary;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " Salary: " + String.format("%.2f", this.salary);
+    }
 }

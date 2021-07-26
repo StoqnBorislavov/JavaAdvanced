@@ -20,4 +20,20 @@ public class MissionImpl implements Mission {
         this.status = Status.FINISHED;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Code Name: ")
+                .append(this.codeName)
+                .append(" ")
+                .append("State: ");
+        if(this.status.equals(Status.valueOf("INPROGRESS"))){
+            builder.append("inProgress");
+        } else {
+            builder.append("finished");
+        }
+
+        return builder.toString().trim();
+    }
+
 }

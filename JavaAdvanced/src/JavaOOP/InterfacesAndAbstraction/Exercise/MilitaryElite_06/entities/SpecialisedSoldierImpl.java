@@ -10,4 +10,8 @@ public abstract class SpecialisedSoldierImpl extends PrivateImpl implements Spec
         super(id, firstName, lastName, salary);
         this.corps = corps;
     }
+
+    protected Corps getCorps() {
+        return corps;
+    }
 }
